@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProjetoRevisoes1.Models.BolsaInvestigacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bolsas de Investigação</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Adiciona">Criar Nova</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    <a asp-action="AplicarFiltro" asp-route-id="@item.Id">@item.Area</a>
+                </td>
+                <td id="c_@item.Id">
+                    <a asp-action="Detalhes" asp-route-id="@item.Id"
+                       data-ajax="true" data-ajax-method="get"
+                       data-ajax-mode="replace" data-ajax-update="#c_@item.Id">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
