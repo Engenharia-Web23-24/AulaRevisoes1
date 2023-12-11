@@ -12,5 +12,8 @@ namespace ProjetoRevisoes1.Models
         public int Duracao { get; set; }
         [Display(Name = "Valor da Mensalidade (euros)")]
         public int Remuneracao { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? RegistadoEm { get; set; }
+        public string? RegistadoPor { get; set; }
     }
 }

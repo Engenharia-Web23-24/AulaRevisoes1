@@ -26,25 +26,6 @@ namespace ProjetoRevisoes1.Controllers
             return View(await _context.Bolsas.ToListAsync());
         }
 
-        // GET: Bolsas/Details/5
-        public async Task<string> Detalhes(int? id)
-        {
-            //if (id == null || _context.Bolsas == null)
-            //{
-            //    return NotFound();
-            //}
-
-            var bolsaInvestigacao = await _context.Bolsas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bolsaInvestigacao == null)
-            {
-                return "";
-            }
-
-            return "<td>" + bolsaInvestigacao.Remuneracao + "€ durante "
-                + bolsaInvestigacao.Duracao + " meses</td>";
-        }
-
         // GET: Bolsas/Create
         public IActionResult Adiciona()
         {

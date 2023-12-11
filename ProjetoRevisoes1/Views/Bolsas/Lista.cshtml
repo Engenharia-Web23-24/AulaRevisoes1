@@ -32,12 +32,10 @@
                     @Html.DisplayFor(modelItem => item.Titulo)
                 </td>
                 <td>
-                    <a asp-action="AplicarFiltro" asp-route-id="@item.Id">@item.Area</a>
+                    @Html.DisplayFor(modelItem => item.Area)
                 </td>
-                <td id="c_@item.Id">
-                    <a asp-action="Detalhes" asp-route-id="@item.Id"
-                       data-ajax="true" data-ajax-method="get"
-                       data-ajax-mode="replace" data-ajax-update="#c_@item.Id">Detalhes</a>
+                <td>
+                    <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a>
                 </td>
             </tr>
         }
